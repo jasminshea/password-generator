@@ -1,7 +1,13 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-function lenChoice(){
+function generatePassword(){
+  var upper = "QWERTYUIOPASDFGHJKLZXCVBNM";
+  var lower = "qwertyuiopasdfghjklzxcvbnm";
+  var number = '0123456789';
+  var punctuation = '!@#_';
+  var password = "";
+
   var lenSelect = window.prompt("Input password length between 8-128.");
   if (lenSelect > 8 && lenSelect < 128){
     window.alert("Your password length will be " + lenSelect);
@@ -9,9 +15,7 @@ function lenChoice(){
   else {
     window.alert("Input does not match expected response");
   }
-}
 
-function caseChoice(){
   var lowerSelect = window.prompt("Include lowercase characters? Y/N");
   if (lowerSelect == 'Y' || lowerSelect == 'N'){
     window.alert("You have selected " + lowerSelect);
@@ -26,9 +30,7 @@ function caseChoice(){
   else {
     window.alert("Input does not match expected response");
   }
-}
 
-function numChoice(){
   var numSelect = window.prompt("Include Numbers? Y/N");
   if (numSelect == 'Y' || numSelect == 'N'){
     window.alert("You have selected " + numSelect);
@@ -36,9 +38,7 @@ function numChoice(){
   else {
     window.alert("Input does not match expected response");
   }
-}
 
-function charChoice(){
   var charSelect = window.prompt("Include Special characters? Y/N");
   if (charSelect == 'Y' || charSelect == 'N'){
     window.alert("You have selected " + charSelect);
@@ -46,23 +46,28 @@ function charChoice(){
   else {
     window.alert("Input does not match expected response");
   }
-}
 
+  for (let i = 0; i < ((lenSelect/4)-1); i++) {
+    if (upperSelect == 'Y'){
+      password += upper[Math.floor(Math.random() * (upper.length))];
+    }
+    if (lowerSelect == 'Y'){
+      password += lower[Math.floor(Math.random() * (lower.length))];
+    }
+    if (numSelect == 'Y'){
+      password += number[Math.floor(Math.random() * 10)];
+    }
+    if (charSelect == 'Y'){
+      password += punctuation[Math.floor(Math.random() * (punctuation.length))];
+    }
+  }
 
-function generatePassword(){
-  lenChoice();
-  caseChoice();
-  numChoice();
-  charChoice();
-
-  var upper: "QWERTYUIOPASDFGHJKLZXCVBNM";
-  var lower: "qwertyuiopasdfghjklzxcvbnm";
-  var number = '0123456789';
-  var punctuation = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
-  var password = "";
-
+  for (let i = 0; i < (lenSelect % 4); i++){
+    if (upperSelect == 'Y'){
+      password += upper[Math.floor(Math.random() * (upper.length))];
+  }}
   
-
+  return password
 }
 
 // Write password to the #password input
