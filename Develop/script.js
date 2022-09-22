@@ -55,6 +55,13 @@ function generatePassword(){
   numChoice();
   charChoice();
 
+  var upper: "QWERTYUIOPASDFGHJKLZXCVBNM";
+  var lower: "qwertyuiopasdfghjklzxcvbnm";
+  var number = '0123456789';
+  var punctuation = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
+  var password = "";
+
+  
 
 }
 
